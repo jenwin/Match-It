@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Matching Card Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Assistant:400,700" rel="stylesheet">
+  <!-- stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/xsmobile.css">
+  <!-- font awesome -->
+  <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+
+<body>
+<!-- game container, title -->
+<div class="container">
+  <header>
+    <h1 class="gameName">Matching Card Game</h1>
+  </header>
+
+  <!-- score panel with stars, moves, time, restart button -->
+  <section class="score-panel">
+    <!-- stars -->
+    <ul class="stars">
+      <li class="stars-list">
+        <i class="fa fa-star"></i>
+      </li>
+      <li class="stars-list">
+        <i class="fa fa-star"></i>
+      </li>
+      <li class="stars-list">
+        <i class="fa fa-star"></i>
+      </li>
+    </ul>
+
+    <!-- moves -->
+    <span class="moves">0</span>
+    <span class="movesText">Moves</span>
+
+    <!-- time -->
+    <span class="timeText">Time:</span>
+    <span id="minutes">00</span>:<span id="seconds">00</span>
+
+    <!-- restart button -->
+    <span class="restart">
+      <i class="fa fa-repeat"></i>
+    </span>
+  </section>
+
+  <!-- deck -->
+  <section class="deckOfCards">
+    <ul class="deck">
+      <!-- cards -->
+      <li class="card">
+        <i class="fa fa-diamond flip-card"></i>
+      </li>
+      <li class="card">
+        <i class="fa fa-paper-plane-o flip-card"></i>
+      </li>
+      <li class="card">
+        <i class="fa fa-anchor flip-card"></i>
+      </li>
+      <li class="card">
+        <i class="fa fa-bolt flip-card"></i>
+      </li>
+      <li class="card">
+        <i class="fa fa-cube flip-card"></i>
+      </li>
+      <li class="card">
+        <i class="fa fa-anchor flip-card"></i>
+      </li>
+      <li class="card">
+        <i class="fa fa-leaf flip-card"></i>
+      </li>
+      <li class="card">
+        <i class="fa fa-bicycle flip-card"></i>
+      </li>
+      <li class="card">
+        <i class="fa fa-diamond flip-card"></i>
+      </li>
+      <li class="card">
+        <i class="fa fa-bomb flip-card"></i>
+      </li>
+      <li class="card">
+        <i class="fa fa-leaf flip-card"></i>
+      </li>
+      <li class="card">
+        <i class="fa fa-bomb flip-card"></i>
+      </li>
+      <li class="card">
+        <i class="fa fa-bolt flip-card"></i>
+      </li>
+      <li class="card">
+        <i class="fa fa-bicycle flip-card"></i>
+      </li>
+      <li class="card">
+        <i class="fa fa-paper-plane-o flip-card"></i>
+      </li>
+      <li class="card">
+        <i class="fa fa-cube flip-card"></i>
+      </li>
+    </ul>
+  </section>
+
+  <!-- modal with congrats message, stats, play again button-->
+  <div class="modal-container">
+    <div class="modal-content">
+      <h1 class="congrats">Congratulations! You won! :D</h1>
+    </div>
+    <div class="modal-stats">
+      <div class="starsNum"></div>
+      <div class="movesNum"></div>
+      <div class="timeNum"></div>
+    </div>
+    <div class="playButton">
+      <button id="play-again" type="button">Play Again</button>
+    </div>
+  </div>
+</div>
+
+<!-- footer -->
+<footer>
+  <p class="copyright">© Jennifer Nguyen</p>
+</footer>
+
+<!-- javascript -->
+<script src="js/app.js"></script>
+</body>
+</html>

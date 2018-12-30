@@ -1,0 +1,88 @@
+/*smaller mobile devices*/
+@media screen and ( max-width: 320px ) {
+
+/*game container, title*/
+.container {
+  margin-left: 3rem;
+}
+
+.gameName {
+  font-size: 1.6rem;
+  padding-top: 4rem;
+}
+
+/*score panel with stars, moves, time, restart button*/
+.score-panel {
+  margin-left: 1.3rem;
+}
+
+.moves,
+.movesText,
+.timeText,
+#minutes,
+#seconds {
+  font-size: 0.95rem;
+}
+
+/*stars*/
+.stars {
+  padding-left: 2.3rem;
+}
+
+/*moves*/
+.moves {
+  margin-left: -2.6rem;
+}
+
+.movesText {
+  margin-right: 0.4rem;
+}
+
+/*time*/
+.timeText {
+  padding-left: 0;
+}
+
+/*restart button*/
+.restart {
+  margin-left: 1rem;
+}
+
+.fa-repeat {
+  margin: 0.01rem 3rem 0 0;
+}
+
+/*deck*/
+.deck {
+  height: 310px;
+  width: 310px;
+}
+
+/*cards*/
+.card {
+  height: 65px;
+  width: 65px;
+}
+
+.card.show,
+.card.match {
+  font-size: 1.3rem;
+}
+
+/*modal*/
+.modal-container {
+  bottom: 16.7rem;
+  height: 190px;
+  width: 255px;
+}
+
+.congrats {
+  padding-top: 1.1rem;
+}
+
+/*footer*/
+.copyright {
+  margin-top: -11.5rem;
+  padding-left: 3rem;
+}
+}

@@ -1,0 +1,232 @@
+/*desktop, tablet*/
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  background: -o-linear-gradient(bottom left, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1) fixed;
+  background: -webkit-linear-gradient(bottom left, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1) fixed;
+  background: linear-gradient(to top right, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1) fixed;
+  font-family: "Assistant", sans-serif;
+  margin: auto;
+}
+
+/*game container, title*/
+.container {
+  align-items: center;
+  -webkit-align-items: center;
+  display: flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+}
+
+.gameName {
+  font-size: 2.8rem;
+  font-weight: bold;
+  letter-spacing: 0.14rem;
+  padding-top: 5rem;
+}
+
+/*score panel with stars, moves, time, restart button*/
+.score-panel {
+  margin-bottom: -1rem;
+  padding-bottom: 0.6rem;
+  width: 500px;
+}
+
+.moves,
+.movesText,
+.timeText,
+#minutes,
+#seconds {
+  font-size: 1.16rem;
+}
+
+/*stars*/
+.stars-list {
+  color: #2e2efc;
+  font-size: 1.3rem;
+  list-style: none;
+  padding: 0 0.1rem;
+}
+
+.stars,
+.stars-list {
+  display: inline-block;
+}
+
+/*moves*/
+.moves {
+  letter-spacing: 0.05rem;
+  padding-left: 3.3rem;
+}
+
+.movesText {
+  margin-right: 1.2rem;
+}
+
+/*time*/
+.timeText {
+  padding-left: 1.5rem;
+}
+
+/*restart button*/
+.fa-repeat {
+  cursor: pointer;
+  float: right;
+  margin-left: 2rem;
+  padding: 1.4rem 2.5rem 0 0;
+}
+
+/*deck*/
+.deck {
+  align-items: center;
+  -webkit-align-items: center;
+  background: -o-linear-gradient(bottom left, #f8f8e5, #f6f8dd, #f4f9d6, #f0facf, #ebfbc8);
+  background: -webkit-linear-gradient(bottom left, #f8f8e5, #f6f8dd, #f4f9d6, #f0facf, #ebfbc8);
+  background: linear-gradient(to top right, #f8f8e5, #f6f8dd, #f4f9d6, #f0facf, #ebfbc8);
+  border-radius: 4%;
+  box-shadow: 0.37rem 0.5rem 1.88rem 0 #3f3f3f;
+  display: flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  height: 645px;
+  justify-content: space-between;
+  padding: 2rem;
+  perspective: 1000px;
+  width: 660px;
+}
+
+/*cards*/
+.card  {
+  align-items: center;
+  -webkit-align-items: center;
+  background-color: #292929;
+  border-radius: 9%;
+  box-shadow: 0.12rem 0.13rem 1.45rem 0 #3f3f3f;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  height: 125px;
+  justify-content: center;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+  width: 125px;
+}
+
+.card.open {
+  background-color: #decef7;
+  transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+}
+
+.card.show {
+  font-size: 2.5rem;
+}
+
+.card.match {
+  background-color: #ba83ca;
+  font-size: 2.5rem;
+}
+
+.flip-card {
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+}
+
+.card.disable,
+.restart.disable {
+  pointer-events: none;
+}
+
+/*modal*/
+.modal-container {
+  background-color: #fff;
+  bottom: 30rem;
+  display: flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  flex-direction: column;
+  height: 280px;
+  position: relative;
+  text-align: center;
+  width: 350px;
+}
+
+.congrats {
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 0.07rem;
+  padding-top: 2.2rem;
+  text-align: center;
+}
+
+.modal-stats {
+  font-size: 1.1rem;
+  letter-spacing: 0.07rem;
+}
+
+.timeNum,
+.starsNum,
+.movesNum {
+  padding-bottom: 0.2rem;
+}
+
+#play-again {
+  background-color: #f00;
+  border: 0.06rem solid #f00;
+  border-radius: 0.3rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.07rem;
+  margin-top: 1rem;
+  padding: 0.66rem;
+}
+
+#play-again:focus {
+  border: 0.06rem dashed #000;
+  outline: none;
+}
+
+#play-again:hover {
+  background-color: #ff7070;
+  border: 0.06rem solid #ff7070;
+  color: #fff;
+}
+
+.hide-modal {
+  visibility: hidden;
+}
+
+/*footer*/
+.copyright {
+  color: #fff;
+  font-size: 1.1rem;
+  letter-spacing: 0.07rem;
+  margin-top: -16rem;
+  text-align: center;
+}

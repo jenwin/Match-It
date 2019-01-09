@@ -1,103 +1,74 @@
-//openCards array
+//check if cards match
 let openCards = [];
 //number of matched cards
 let flippedCards = 0;
-//a single card in the deck
+
+//cards
 const card = document.querySelectorAll('.card');
-//all cards in the deck
 const allCards = [...card];
-//deck
 const deck = document.querySelector('.deck');
 
 //moves
 const getMoves = document.querySelector('.moves');
-//initial value of moves
 let moves = 0;
 
-//time in minutes
+//time
 const minutes = document.getElementById('minutes');
-//time in seconds
 const seconds = document.getElementById('seconds');
-//time is initially off
 let timeOff = true;
-//initial value of time
 let time = 0;
-//variable of gameCounter function
 let gameTime;
 
 //stars
 const stars = document.querySelectorAll('.stars-list');
-//initial value of stars
 let totalStars = 0;
 
-//modal pop up
-//stars in modal
+//modal for stats
 const starsModal = document.querySelector('.starsNum');
-//time in modal
 const timeModal = document.querySelector('.timeNum');
-//moves in modal
 const movesModal = document.querySelector('.movesNum');
-//play button in modal
 const playAgain = document.getElementById('play-again');
-//modal box with stats
 const modalBox = document.querySelector('.modal-container');
 
-//shuffle cards before game begins
 window.onload = function() {
   shuffledCards();
 }
 
-//loop over each individual card
-//a click on a single card
 for (let i = 0; i < card.length; i++) {
   card[i].addEventListener('click', clickCard);
 }
 
-//function for clickCard mentioned previously
+//timer begins when player clicks a card
+//only 2 cards can be flipped over per guess
 function clickCard() {
-  //timer is turned on when a card is clicked
   if (timeOff) {
     gameCounter();
     timeOff = false;
   }
-  //only 2 cards can be flipped over per guess
-  //does not include the current card clicked
   if (openCards.length < 2 && !openCards.includes(this)) {
-    //toggling the cards
     this.classList.toggle('show');
     this.classList.toggle('open');
-    //if cards match, they are pushed into the openCards array
     openCards.push(this);
-    //check if cards match or not
     checkMatch();
   }
 }
 
-//check if cards match or not
+//if match, add to flippedCards, clear openCards
+//if no match, flip them over, clear openCards
 function checkMatch() {
-  //only two cards are allowed
   if (openCards.length === 2) {
-    //both must be identical
     if (openCards[0].innerHTML === openCards[1].innerHTML) {
-      //if cards match, add 'match' to verify match and disable the cards
       openCards[0].classList.add('match', 'disable');
       openCards[1].classList.add('match', 'disable');
-      //matched cards placed into flippedCards
       flippedCards += 2;
-      //clear openCards for the next two guesses
       openCards = [];
-      //number of moves player makes when cards match
       playerMoves();
-      //starts a brand new game when all cards are matched
       newGame();
     } else {
-      //if cards do not match, flip them over
       setTimeout(function() {
       openCards[0].classList.remove('open', 'show');
       openCards[1].classList.remove('open', 'show');
-      //clear openCards for the next two guesses
       openCards = [];
-      //number of moves player makes when cards do not match
       playerMoves();
       }, 350);
     }
@@ -108,12 +79,10 @@ function checkMatch() {
 function playerMoves() {
   moves++;
   getMoves.innerHTML = moves;
-  //increase in moves results in a star removal
   removeStar();
 }
 
 //hides a star when moves increase
-//each star will be hidden
 function removeStar() {
   if (moves === 15) {
     stars[2].style.visibility = 'hidden';
@@ -123,7 +92,7 @@ function removeStar() {
     stars[0].style.visibility = 'hidden';
   }
 
-  //totalStars displayed on modal based on moves
+  //number of stars in modal based on moves
   if (moves < 15) {
     totalStars = 3;
   } if (moves >= 15 && moves < 20) {
@@ -135,11 +104,10 @@ function removeStar() {
   }
 }
 
-//function for time
+//game timer
 function gameCounter() {
   gameTime = setInterval(function() {
   time++;
-  //display minutes and seconds (00:00)
   minutes.innerHTML = ('0' + parseInt(time/60)).substr(-2);
   seconds.innerHTML = ('0' + (time % 60)).substr(-2);
   }, 1000);
@@ -147,13 +115,9 @@ function gameCounter() {
 
 //player wins when all cards are matched
 function newGame() {
-  //total flippedCards and allCards are equal
   if (flippedCards === allCards.length) {
-    //modal pops up to congratulate
     modalOpen();
-    //time paused when modal pops up
     clearInterval(gameTime);
-    //disables restart button when modal is open
     restartGame.classList.add('disable');
   }
 }
@@ -179,32 +143,24 @@ function shuffledCards() {
   }
 }
 
-//restart button
+//resets the game
 const restartGame = document.querySelector('.restart');
-//a click to reset the game
 restartGame.addEventListener('click', resetButton);
-//function to reset game
 function resetButton() {
-  //resets stars, moves, time, flippedCards, and shuffles the cards
   location.reload();
 }
 
-//function for modal pop up
+//modal pop up for stats
 function modalOpen() {
-  //toggles modal
   modalBox.classList.toggle('hide-modal');
-  //time displayed on modal
   timeModal.innerHTML = 'Time: ' + minutes.innerText + ':' + seconds.innerText;
-  //stars displayed on modal
   starsModal.innerHTML = 'Stars: ' + totalStars;
-  //moves displayed on modal
   movesModal.innerHTML = 'Moves: ' + moves;
 }
 //hides modal
 modalOpen();
 
-//play again button in modal to restart the game
+//play again button in modal to reset the game
 playAgain.addEventListener('click', function() {
-  //resets the game with the resetButton function
   resetButton();
 });

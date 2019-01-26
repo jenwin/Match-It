@@ -4,9 +4,12 @@ let openCards = [];
 let flippedCards = 0;
 
 //cards
-const card = document.querySelectorAll('.card');
-const allCards = [...card];
 const deck = document.querySelector('.deck');
+const card = document.getElementsByClassName('card');
+const allCards = ['fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa-bolt',
+                  'fa fa-cube', 'fa fa-leaf', 'fa fa-bicycle', 'fa fa-bomb',
+                  'fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa-bolt',
+                  'fa fa-cube', 'fa fa-leaf', 'fa fa-bicycle', 'fa fa-bomb'];
 
 //moves
 const getMoves = document.querySelector('.moves');
@@ -30,12 +33,35 @@ const movesModal = document.querySelector('.movesNum');
 const playAgain = document.getElementById('play-again');
 const modalBox = document.querySelector('.modal-container');
 
-window.onload = function() {
+window.onload = () => {
   shuffledCards();
 }
 
-for (let i = 0; i < card.length; i++) {
-  card[i].addEventListener('click', clickCard);
+//function to shuffle cards from stackoverflow
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+}
+
+//shuffling the cards, creating cards
+function shuffledCards() {
+  shuffle(allCards);
+  allCards.forEach((cards) => {
+    const cardList = document.createElement('li');
+    cardList.classList.add('card');
+    cardList.innerHTML = '<i class="' + cards + ' flip-card"></i>';
+    deck.appendChild(cardList);
+  });
+  for (let i = 0; i < card.length; i++) {
+    card[i].addEventListener('click', clickCard);
+  }
 }
 
 //timer begins when player clicks a card
@@ -106,7 +132,7 @@ function removeStar() {
 
 //game timer
 function gameCounter() {
-  gameTime = setInterval(function() {
+  gameTime = setInterval(() => {
   time++;
   minutes.innerHTML = ('0' + parseInt(time/60)).substr(-2);
   seconds.innerHTML = ('0' + (time % 60)).substr(-2);
@@ -119,27 +145,6 @@ function newGame() {
     modalOpen();
     clearInterval(gameTime);
     restartGame.classList.add('disable');
-  }
-}
-
-//function to shuffle cards from stackoverflow
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-    while (currentIndex !== 0) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-    return array;
-}
-
-//shuffling the cards
-function shuffledCards() {
-  const newCards = shuffle(allCards);
-  for (let cards of newCards) {
-    deck.appendChild(cards);
   }
 }
 
@@ -161,6 +166,6 @@ function modalOpen() {
 modalOpen();
 
 //play again button in modal to reset the game
-playAgain.addEventListener('click', function() {
+playAgain.addEventListener('click', () => {
   resetButton();
 });

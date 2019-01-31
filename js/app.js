@@ -26,12 +26,13 @@ let gameTime;
 const stars = document.querySelectorAll('.stars-list');
 let totalStars = 0;
 
-//modal for stats
+//modal, reset
 const starsModal = document.querySelector('.starsNum');
 const timeModal = document.querySelector('.timeNum');
 const movesModal = document.querySelector('.movesNum');
 const playAgain = document.getElementById('play-again');
 const modalBox = document.querySelector('.modal-container');
+const restartGame = document.querySelector('.restart');
 
 window.onload = () => {
   shuffledCards();
@@ -52,8 +53,9 @@ function shuffle(array) {
 
 //shuffling the cards, creating cards
 function shuffledCards() {
-  shuffle(allCards);
-  allCards.forEach((cards) => {
+  const newCards = shuffle(allCards);
+  deck.innerHTML = '';
+  newCards.forEach((cards) => {
     const cardList = document.createElement('li');
     cardList.classList.add('card');
     cardList.innerHTML = '<i class="' + cards + ' flip-card"></i>';
@@ -61,16 +63,23 @@ function shuffledCards() {
   });
   for (let i = 0; i < card.length; i++) {
     card[i].addEventListener('click', clickCard);
+    card[i].className = 'card';
   }
 }
 
 //timer begins when player clicks a card
 //only 2 cards can be flipped over per guess
 function clickCard() {
-  if (timeOff) {
-    gameCounter();
-    timeOff = false;
+  if (moves === 0) {
+    if (timeOff) {
+      gameCounter();
+      timeOff = false;
+    } else if (time <= 0) {
+      pauseTime();
+      gameCounter(); 
+    }
   }
+  
   if (openCards.length < 2 && !openCards.includes(this)) {
     this.classList.toggle('show');
     this.classList.toggle('open');
@@ -101,10 +110,14 @@ function checkMatch() {
   }
 }
 
+function displayMoves() {
+  getMoves.innerHTML = moves;
+}
+
 //number of moves player makes
 function playerMoves() {
   moves++;
-  getMoves.innerHTML = moves;
+  displayMoves();
   removeStar();
 }
 
@@ -130,13 +143,21 @@ function removeStar() {
   }
 }
 
+function displayTime() {
+  minutes.innerHTML = ('0' + parseInt(time/60)).substr(-2);
+  seconds.innerHTML = ('0' + (time % 60)).substr(-2);
+}
+
 //game timer
 function gameCounter() {
   gameTime = setInterval(() => {
   time++;
-  minutes.innerHTML = ('0' + parseInt(time/60)).substr(-2);
-  seconds.innerHTML = ('0' + (time % 60)).substr(-2);
+  displayTime();
   }, 1000);
+}
+
+function pauseTime() {
+  clearInterval(gameTime);
 }
 
 //player wins when all cards are matched
@@ -148,11 +169,29 @@ function newGame() {
   }
 }
 
+function resetMoves() {
+  moves = 0;
+  displayMoves();
+}
+                                                      
+function addStars() {
+  for (let i = 0; i < stars.length; i++) {
+    stars[i].removeAttribute('style');
+  }
+}
+
 //resets the game
-const restartGame = document.querySelector('.restart');
 restartGame.addEventListener('click', resetButton);
 function resetButton() {
-  location.reload();
+  shuffledCards();
+  resetMoves();
+  addStars();
+  time = 0;
+  displayTime();
+  pauseTime();
+  flippedCards = 0;
+  openCards = [];
+  restartGame.classList.remove('disable');
 }
 
 //modal pop up for stats
@@ -168,4 +207,5 @@ modalOpen();
 //play again button in modal to reset the game
 playAgain.addEventListener('click', () => {
   resetButton();
+  modalOpen();
 });

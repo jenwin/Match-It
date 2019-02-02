@@ -3,53 +3,40 @@
 
 /*game container, title*/
 .container {
-  margin-left: 3rem;
+  margin: auto;
 }
 
 .gameName {
   font-size: 1.6rem;
-  padding-top: 4rem;
 }
 
 /*score panel with stars, moves, time, restart button*/
-.score-panel {
-  margin-left: 1.3rem;
-}
-
 .moves,
 .movesText,
 .timeText,
 #minutes,
 #seconds {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
 }
 
 /*stars*/
-.stars {
-  padding-left: 2.3rem;
+.stars-list {
+  font-size: 1.2rem;
+  letter-spacing: -0.1rem;
 }
 
 /*moves*/
 .moves {
-  margin-left: -2.6rem;
+  margin-left: -2.3rem;
 }
 
 .movesText {
   margin-right: 0.4rem;
 }
 
-/*time*/
-.timeText {
-  padding-left: 0;
-}
-
 /*restart button*/
-.restart {
-  margin-left: 1rem;
-}
-
-.fa-repeat {
-  margin: 0.01rem 3rem 0 0;
+.fa-redo-alt {
+  font-size: 1.2rem;
 }
 
 /*deck*/
@@ -69,20 +56,18 @@
   font-size: 1.3rem;
 }
 
+.flip-card {
+  font-size: 1.5rem;
+}
+
 /*modal*/
 .modal-container {
-  bottom: 16.7rem;
-  height: 190px;
+  bottom: 17.3rem;
+  height: 220px;
   width: 255px;
 }
 
 .congrats {
-  padding-top: 1.1rem;
-}
-
-/*footer*/
-.copyright {
-  margin-top: -11.5rem;
-  padding-left: 3rem;
+  padding-top: 0.95rem;
 }
 }

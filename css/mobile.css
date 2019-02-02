@@ -4,13 +4,13 @@
 /*title of game*/
 .gameName {
   font-size: 1.9rem;
+  letter-spacing: 0;
   padding-top: 3.4rem;
 }
 
 /*score panel with stars, moves, time, restart button*/
 .score-panel {
   margin-left: -2rem;
-  width: 350px;
 }
 
 .moves,
@@ -18,16 +18,16 @@
 .timeText,
 #minutes,
 #seconds {
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 
 /*stars*/
 .stars {
-  padding-left: 2.9rem;
+  padding-left: 3.1rem;
 }
 
 .stars-list {
-  font-size: 1rem;
+  font-size: 1.2rem;
   padding: 0 0.05rem;
 }
 
@@ -36,14 +36,23 @@
   margin-left: -2rem;
 }
 
+.movesText {
+  margin-right: 0.4rem;
+}
+
 /*time*/
 .timeText {
   padding-left: 0.07rem;
 }
 
+#between {
+  font-size: 1.3rem;
+}
+
 /*restart button*/
-.fa-repeat {
-  padding: 1.15rem 1rem 0 0;
+.fa-redo-alt {
+  font-size: 1.2rem;
+  margin: 1.2rem;
 }
 
 /*deck*/
@@ -54,7 +63,7 @@
 }
 
 /*cards*/
-.card  {
+.card {
   height: 73px;
   width: 73px;
 }
@@ -64,16 +73,25 @@
   font-size: 1.5rem;
 }
 
+.flip-card {
+  font-size: 1.5rem;
+}
+
 /*modal*/
 .modal-container {
-  bottom: 18.1rem;
-  height: 200px;
+  bottom: 18.73rem;
+  height: 220px;
   width: 275px;
 }
 
 .congrats {
-  font-size: 1rem;
-  padding-top: 1.3rem;
+  font-size: 1.3rem;
+  margin-top: 0.1rem;
+}
+
+.won {
+  font-size: 1.2rem;
+  margin: -0.5rem 0 1rem 0;
 }
 
 .modal-stats {
@@ -89,6 +107,6 @@
 /*footer*/
 .copyright {
   font-size: 0.7rem;
-  margin-top: -12rem;
+  margin-top: -13rem;
 }
 }

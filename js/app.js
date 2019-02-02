@@ -6,10 +6,10 @@ let flippedCards = 0;
 //cards
 const deck = document.querySelector('.deck');
 const card = document.getElementsByClassName('card');
-const allCards = ['fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa-bolt',
-                  'fa fa-cube', 'fa fa-leaf', 'fa fa-bicycle', 'fa fa-bomb',
-                  'fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa-bolt',
-                  'fa fa-cube', 'fa fa-leaf', 'fa fa-bicycle', 'fa fa-bomb'];
+const allCards = ['fas fa-dice-three', 'fas fa-cat', 'far fa-grin-stars', 'fas fa-hamburger',
+                  'fas fa-cookie-bite', 'fas fa-music', 'fas fa-pizza-slice', 'fas fa-dog',
+                  'fas fa-dice-three', 'fas fa-cat', 'far fa-grin-stars', 'fas fa-hamburger',
+                  'fas fa-cookie-bite', 'fas fa-music', 'fas fa-pizza-slice', 'fas fa-dog'];
 
 //moves
 const getMoves = document.querySelector('.moves');
@@ -76,10 +76,10 @@ function clickCard() {
       timeOff = false;
     } else if (time <= 0) {
       pauseTime();
-      gameCounter(); 
+      gameCounter();
     }
   }
-  
+
   if (openCards.length < 2 && !openCards.includes(this)) {
     this.classList.toggle('show');
     this.classList.toggle('open');
@@ -101,10 +101,10 @@ function checkMatch() {
       newGame();
     } else {
       setTimeout(function() {
-      openCards[0].classList.remove('open', 'show');
-      openCards[1].classList.remove('open', 'show');
-      openCards = [];
-      playerMoves();
+        openCards[0].classList.remove('open', 'show');
+        openCards[1].classList.remove('open', 'show');
+        openCards = [];
+        playerMoves();
       }, 350);
     }
   }
@@ -123,12 +123,16 @@ function playerMoves() {
 
 //hides a star when moves increase
 function removeStar() {
-  if (moves === 15) {
-    stars[2].style.visibility = 'hidden';
-  } if (moves === 20) {
-    stars[1].style.visibility = 'hidden';
-  } if (moves === 25) {
-    stars[0].style.visibility = 'hidden';
+  switch (moves) {
+    case 15:
+      stars[2].style.visibility = 'hidden';
+      break;
+    case 20:
+      stars[1].style.visibility = 'hidden';
+      break;
+    case 25:
+      stars[0].style.visibility = 'hidden';
+      break;
   }
 
   //number of stars in modal based on moves
@@ -151,8 +155,8 @@ function displayTime() {
 //game timer
 function gameCounter() {
   gameTime = setInterval(() => {
-  time++;
-  displayTime();
+    time++;
+    displayTime();
   }, 1000);
 }
 
@@ -173,7 +177,7 @@ function resetMoves() {
   moves = 0;
   displayMoves();
 }
-                                                      
+
 function addStars() {
   for (let i = 0; i < stars.length; i++) {
     stars[i].removeAttribute('style');

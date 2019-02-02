@@ -6,8 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Matching Card Game</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Assistant:400,700" rel="stylesheet">
-  <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/mobile.css">
   <link rel="stylesheet" href="css/xsmobile.css">
@@ -41,11 +42,11 @@
 
     <!-- time -->
     <span class="timeText">Time:</span>
-    <span id="minutes">00</span>:<span id="seconds">00</span>
+    <span id="minutes">00</span><span id="between">:</span><span id="seconds">00</span>
 
     <!-- restart button -->
     <span class="restart">
-      <i class="fa fa-repeat"></i>
+      <i class="fas fa-redo-alt"></i>
     </span>
   </section>
 
@@ -59,7 +60,8 @@
   <!-- modal with congrats message, stats, play again button-->
   <div class="modal-container">
     <div class="modal-content">
-      <h1 class="congrats">Congratulations! You won! :D</h1>
+      <h1 class="congrats">Congratulations!</h1>
+      <p class="won">You won! <i class="far fa-smile"></i></p>
     </div>
     <div class="modal-stats">
       <div class="starsNum"></div>

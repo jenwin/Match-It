@@ -177,8 +177,8 @@ html {
   -moz-border-radius: 1rem;
   -webkit-border-radius: 1rem;
   bottom: 30rem;
-  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
   display: flex;
   display: -moz-box;
   display: -ms-flexbox;

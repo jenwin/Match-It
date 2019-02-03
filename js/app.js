@@ -34,6 +34,11 @@ const playAgain = document.getElementById('play-again');
 const modalBox = document.querySelector('.modal-container');
 const restartGame = document.querySelector('.restart');
 
+//sounds
+const flipSound = new Audio('sounds/cardflip.mp3');
+const noMatchSound = new Audio('sounds/nomatch.mp3');
+const matchSound = new Audio('sounds/match.mp3');
+
 window.onload = () => {
   shuffledCards();
 }
@@ -81,6 +86,7 @@ function clickCard() {
   }
 
   if (openCards.length < 2 && !openCards.includes(this)) {
+    flipSound.play();
     this.classList.toggle('show');
     this.classList.toggle('open');
     openCards.push(this);
@@ -96,10 +102,12 @@ function checkMatch() {
       openCards[0].classList.add('match', 'disable');
       openCards[1].classList.add('match', 'disable');
       flippedCards += 2;
+      matchSound.play();
       openCards = [];
       playerMoves();
       newGame();
     } else {
+      noMatchSound.play();
       setTimeout(function() {
         openCards[0].classList.remove('open', 'show');
         openCards[1].classList.remove('open', 'show');

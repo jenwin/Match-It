@@ -3,6 +3,15 @@
 ## Description 
 A fun and engaging card-matching game to test your memory and concentration! Built with HTML, CSS, and JavaScript, this game is perfect for players of all ages.
 
+## Technologies
+- HTML5
+- CSS3
+- JavaScript
+
+## Installation
+1. Clone or download the repository.
+2. Open the `index.html` file in your browser to start the game.
+
 ## Key Features
 - **Interactive Gameplay:**
   - 16 cards with 8 matching pairs.
@@ -22,11 +31,9 @@ A fun and engaging card-matching game to test your memory and concentration! Bui
 - **Restart Button:** Reset the game at any time.
 
 ## How to Play
-1. Clone or Download.
-2. Open the `index.html` file in your browser.
-3. Flip the cards to find matching pairs.
-4. Match all the pairs to complete the game.
-5. Check your stats and aim for a better score!
+1. Flip the cards to find matching pairs.
+2. Match all the pairs to complete the game.
+3. Check your stats and aim for a better score!
 
 ## License
 GNU General Public License v3.0

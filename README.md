@@ -8,10 +8,6 @@ A fun and engaging card-matching game to test your memory and concentration! Bui
 - CSS3
 - JavaScript
 
-## Installation
-1. Clone or download the repository.
-2. Open the `index.html` file in your browser to start the game.
-
 ## Key Features
 - **Interactive Gameplay:**
   - 16 cards with 8 matching pairs.
@@ -34,6 +30,9 @@ A fun and engaging card-matching game to test your memory and concentration! Bui
 1. Flip the cards to find matching pairs.
 2. Match all the pairs to complete the game.
 3. Check your stats and aim for a better score!
+
+## Live Demo
+[https://jenwin.github.io/matching-card-game/](https://jenwin.github.io/matching-card-game/)
 
 ## License
 GNU General Public License v3.0

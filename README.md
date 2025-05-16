@@ -1,6 +1,4 @@
 # Match It!
-
-## Description 
 A fun and engaging card-matching game that tests your memory and concentration! Perfect for all ages.
 
 ## Technologies

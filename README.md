@@ -1,4 +1,4 @@
-# Matching Card Game
+# Match It!
 
 ## Description 
 A fun and engaging card-matching game to test your memory and concentration! Built with HTML, CSS, and JavaScript, this game is perfect for players of all ages.

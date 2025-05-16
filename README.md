@@ -4,9 +4,9 @@
 A fun and engaging card-matching game that tests your memory and concentration! Perfect for all ages.
 
 ## Technologies
-- HTML5
-- CSS3
 - JavaScript
+- CSS3
+- HTML5
 
 ## Key Features
 - **Interactive Gameplay:**

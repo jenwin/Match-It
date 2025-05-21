@@ -30,7 +30,7 @@ A fun and engaging card-matching game that tests your memory and concentration! 
 3. Check your stats and aim for a better score!
 
 ## Live Demo
-[https://jenwin.github.io/Match-It/](https://jenwin.github.io/Match-It/)
+[jenwin.github.io/Match-It/](https://jenwin.github.io/Match-It/)
 
 ## License
 GNU General Public License v3.0

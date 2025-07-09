@@ -4,11 +4,6 @@ A fun and engaging card-matching game that tests your memory and concentration! 
 ## Live Demo
 [jenwin.github.io/Match-It/](https://jenwin.github.io/Match-It/)
 
-## Technologies
-- JavaScript
-- CSS3
-- HTML5
-
 ## Key Features
 - **Interactive Gameplay:**
   - 16 cards with 8 matching pairs.
@@ -31,6 +26,11 @@ A fun and engaging card-matching game that tests your memory and concentration! 
 1. Flip the cards to find matching pairs.
 2. Match all the pairs to complete the game.
 3. Check your stats and aim for a better score!
+
+## Technologies
+- JavaScript
+- CSS3
+- HTML5
 
 ## License
 GNU General Public License v3.0
